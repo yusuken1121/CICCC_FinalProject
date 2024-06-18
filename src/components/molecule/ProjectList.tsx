@@ -1,8 +1,8 @@
-import { SubmitButton } from "../../atom/SubmitButton";
+import { SubmitButton } from "../atom/SubmitButton";
 
 export const ProjectsList = () => {
   return (
-    <form className="w-5/6 h-96 p-4 mt-4 border-2 border-sky-500 ">
+    <form className="w-full h-96 p-4 mt-4 border-2 border-sky-500 ">
       <div className="form-control">
         <label htmlFor="title">Title</label>
         <input type="text" id="title" />
