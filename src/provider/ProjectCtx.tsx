@@ -1,5 +1,5 @@
 import { FC, ReactNode, createContext, useState } from "react";
-import { Project, ProjectsContextType } from "../components/types/project";
+import { Project, ProjectsContextType } from "../types/project";
 
 export type ProjectProvider = {
   children: ReactNode;
