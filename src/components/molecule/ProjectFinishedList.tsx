@@ -1,5 +1,10 @@
-import { ProjectItemListFormat } from "./listTemplate/ProjectItemListFormat";
+import { ProjectListType } from "../../types/project";
+import { ProjectListFormat } from "./listTemplate/ProjectListFormat";
 
 export const ProjectFinishedList = () => {
-  return <ProjectItemListFormat>FINISHED PROJECTS</ProjectItemListFormat>;
+  return (
+    <ProjectListFormat projectType={ProjectListType.FINISHED}>
+      FINISHED PROJECTS
+    </ProjectListFormat>
+  );
 };

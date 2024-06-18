@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { SubmitButton } from "../atom/SubmitButton";
 import { v4 as uuid } from "uuid";
 import { ProjectsCtx } from "../../provider/ProjectCtx";
+import { ProjectListType } from "../../types/project";
 
 export const ProjectsList = () => {
   const [title, setTitle] = useState<string>("");
@@ -22,7 +23,10 @@ export const ProjectsList = () => {
   };
   const submitProject = (e: React.FormEvent) => {
     e.preventDefault();
-    setProjects([...projects, { id: uuid(), title, description, people }]);
+    setProjects([
+      ...projects,
+      { id: uuid(), title, description, people, type: ProjectListType.ACTIVE },
+    ]);
   };
   console.log(projects);
 
