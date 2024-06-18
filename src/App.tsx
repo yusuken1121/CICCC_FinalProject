@@ -1,6 +1,6 @@
 import "./App.css";
 import { Header } from "./components/organism/header/Header";
-import { Main } from "./components/organism/main/main";
+import { Main } from "./components/organism/main/Main";
 
 function App() {
   return (

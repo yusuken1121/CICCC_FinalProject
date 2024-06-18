@@ -1,9 +1,9 @@
-import { SubmitButton } from "../../atom/SubmitButton";
+import { ProjectsList } from "../../molecule/listTemplate/ProjectList";
 
 export const Main = () => {
   return (
     <main>
-      <SubmitButton />
+      <ProjectsList />
     </main>
   );
 };
