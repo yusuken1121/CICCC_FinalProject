@@ -4,7 +4,7 @@ import {
   KeyboardSensor,
   PointerSensor,
   TouchSensor,
-  closestCorners,
+  rectIntersection,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -100,7 +100,7 @@ export const Main = () => {
   return (
     <DndContext
       sensors={sensors}
-      collisionDetection={closestCorners}
+      collisionDetection={rectIntersection}
       // onDragStart={handleDragStart}
       // onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
