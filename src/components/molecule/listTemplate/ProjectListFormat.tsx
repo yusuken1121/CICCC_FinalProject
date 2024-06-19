@@ -17,14 +17,9 @@ export const ProjectListFormat: FC<ProjectListFormat> = ({
   const { projects } = useContext(ProjectsCtx);
   const { setNodeRef } = useDroppable({ id: projectType });
 
-  const activeProjects = projects.filter((project: Project) => {
-    return project.type === "ACTIVE";
-  });
-  console.log("active 🚀", activeProjects);
-  const finishedProjects = projects.filter((project: Project) => {
-    return project.type === "FINISHED";
-  });
-  console.log("finished 🚀", finishedProjects);
+  const filteredProjects = projects.filter(
+    (project: Project) => project.type === projectType
+  );
 
   return (
     <div className="w-48p h-svh mb-2 border-2 border-sky-500 mt-4">
@@ -33,37 +28,24 @@ export const ProjectListFormat: FC<ProjectListFormat> = ({
       </div>
       <SortableContext
         id={projectType}
-        items={projects}
+        items={filteredProjects.map((project: Project) => project.id)}
         strategy={rectSortingStrategy}
       >
         <ul
-          className="w-full flex flex-col justify-center items-center"
+          className="w-full flex flex-col justify-start items-center"
           ref={setNodeRef}
         >
-          {projectType === "ACTIVE" &&
-            activeProjects.map((project: Project) => {
-              return (
-                <ProjectItemFormat
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  description={project.description}
-                  people={project.people}
-                />
-              );
-            })}
-          {projectType === "FINISHED" &&
-            finishedProjects.map((project: Project) => {
-              return (
-                <ProjectItemFormat
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  description={project.description}
-                  people={project.people}
-                />
-              );
-            })}
+          {filteredProjects.map((project: Project) => {
+            return (
+              <ProjectItemFormat
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                people={project.people}
+              />
+            );
+          })}
         </ul>
       </SortableContext>
     </div>

@@ -28,7 +28,6 @@ export const ProjectsList = () => {
       { id: uuid(), title, description, people, type: ProjectListType.ACTIVE },
     ]);
   };
-  console.log(projects);
 
   return (
     <form className="w-full h-96 p-4 mt-4 border-2 border-sky-500 ">
