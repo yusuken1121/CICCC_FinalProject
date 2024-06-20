@@ -3,11 +3,12 @@ import { SubmitButton } from "../atom/SubmitButton";
 import { v4 as uuid } from "uuid";
 import { ProjectsCtx } from "../../provider/ProjectCtx";
 import { ProjectListType } from "../../types/project";
+import { Validatable, validate } from "../../helpers/validation";
 
 export const ProjectsList = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
-  const [people, setPeople] = useState<number>(0);
+  const [people, setPeople] = useState<number>(1);
   const { projects, setProjects } = useContext(ProjectsCtx);
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,13 +24,50 @@ export const ProjectsList = () => {
   };
   const submitProject = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const titleValidatable: Validatable = {
+      value: title,
+      required: true,
+      minLength: 1,
+      maxLength: 20,
+    };
+
+    const descriptionValidatable: Validatable = {
+      value: description,
+      required: true,
+      minLength: 1,
+      maxLength: 20,
+    };
+
+    const peopleValidatable: Validatable = {
+      value: people,
+      required: true,
+      min: 1,
+      max: 10,
+    };
+
+    if (
+      !validate(titleValidatable) ||
+      !validate(descriptionValidatable) ||
+      !validate(peopleValidatable)
+    ) {
+      alert("INVALID INPUT DATA");
+      return;
+    }
     setProjects([
       ...projects,
-      { id: uuid(), title, description, people, type: ProjectListType.ACTIVE },
+      {
+        id: uuid(),
+        title,
+        description,
+        people,
+        type: ProjectListType.ACTIVE,
+      },
     ]);
+
     setTitle("");
     setDescription("");
-    setPeople(0);
+    setPeople(1);
   };
 
   return (
