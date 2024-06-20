@@ -7,7 +7,7 @@ import { ProjectListType } from "../../types/project";
 export const ProjectsList = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
-  const [people, setPeople] = useState<number>(NaN);
+  const [people, setPeople] = useState<number>(0);
   const { projects, setProjects } = useContext(ProjectsCtx);
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,37 +27,52 @@ export const ProjectsList = () => {
       ...projects,
       { id: uuid(), title, description, people, type: ProjectListType.ACTIVE },
     ]);
+    setTitle("");
+    setDescription("");
+    setPeople(0);
   };
 
   return (
     <form className="w-full h-96 p-4 mt-4 border-2 border-sky-500 ">
       <div className="form-control">
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title" className="font-mono">
+          Title
+        </label>
         <input
           type="text"
+          className="font-mono"
+          placeholder="Enter fewer than 20 characters"
           id="title"
           value={title}
           onChange={handleChangeTitle}
         />
       </div>
       <div className="form-control">
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description" className="font-mono">
+          Description
+        </label>
         <textarea
           id="description"
+          className="font-mono"
+          placeholder="Enter fewer than 20 characters"
           value={description}
           onChange={handleChangeDescription}
         ></textarea>
       </div>
       <div className="form-control">
-        <label htmlFor="people">People</label>
+        <label htmlFor="people" className="font-mono">
+          People
+        </label>
         <input
           value={people}
+          className="font-mono"
           type="number"
           id="people"
           step="1"
           min="0"
           max="10"
           onChange={handlePeopleChange}
+          placeholder=""
         />
       </div>
       <SubmitButton onSubmitProject={submitProject} />
