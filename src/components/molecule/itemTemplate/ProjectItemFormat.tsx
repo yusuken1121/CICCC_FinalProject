@@ -1,6 +1,9 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { FC } from "react";
 import { CSS } from "@dnd-kit/utilities";
+import { IoAccessibility } from "react-icons/io5";
+import { IoChatbubbleEllipses } from "react-icons/io5";
+import { IoListCircle } from "react-icons/io5";
 
 type ProjectItemFormatType = {
   id: string;
@@ -29,9 +32,18 @@ export const ProjectItemFormat: FC<ProjectItemFormatType> = ({
       {...listeners}
       className="w-5/6 h-44 border-2 mt-2 shadow-lg lg:max-w-xl flex flex-col flex-wrap justify-center p-3 break-all"
     >
-      <p>{title}</p>
-      <p>{description}</p>
-      <p>{people}</p>
+      <p className="item-container-base text-3xl">
+        <IoListCircle className="item-icons-base" />
+        {title}
+      </p>
+      <p className="item-container-base text-xl">
+        <IoChatbubbleEllipses className="item-icons-base" />
+        {description}
+      </p>
+      <p className="item-container-base text-xl">
+        <IoAccessibility className="item-icons-base" />
+        {people}
+      </p>
     </li>
   );
 };
