@@ -5,7 +5,7 @@ import { ProjectsCtx } from "../../provider/ProjectCtx";
 import { ProjectListType } from "../../types/project";
 import { Validatable, validate } from "../../helpers/validation";
 
-export const ProjectsList = () => {
+export const ProjectForm = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [people, setPeople] = useState<number>(1);
