@@ -21,7 +21,7 @@
     @apply w-full h-96 p-4 mt-4 border-2 border-sky-500 dark:border-lime-500;
   }
   .input-base {
-    @apply w-full border-2 rounded-lg p-3 mb-4 font-mono text-black bg-white focus:outline-none dark:bg-black focus:bg-sky-100 dark:focus:bg-lime-200;
+    @apply w-full border-2 rounded-lg p-3 mb-4 font-mono text-black dark:text-white bg-white focus:outline-none dark:focus:text-black dark:bg-black focus:bg-sky-100 dark:focus:bg-lime-200;
   }
 
   .project-list-base {
