@@ -15,23 +15,20 @@ export const ProjectListFormat: FC<ProjectListFormat> = ({
   projectType,
 }) => {
   const { projects } = useContext(ProjectsCtx);
-  const { setNodeRef, isOver } = useDroppable({ id: projectType });
+  const { setNodeRef } = useDroppable({ id: projectType });
 
   const filteredProjects = projects.filter(
     (project: Project) => project.type === projectType
   );
 
-  const dropZoneStyle = {
-    border: isOver ? "2px dashed red" : "2px solid skyblue",
-    backgroundColor: isOver ? "#e0ffe0" : "transparent",
-  };
+  // Check for the range of the dropzone
+  // const dropZoneStyle = {
+  //   border: isOver ? "2px dashed red" : "2px solid skyblue",
+  //   backgroundColor: isOver ? "#e0ffe0" : "transparent",
+  // };
 
   return (
-    <div
-      className="w-full md:w-48p min-h-svh max-h-fit mb-2 border-2 border-sky-500 mt-4"
-      style={dropZoneStyle}
-      ref={setNodeRef}
-    >
+    <div className="project-list-base" ref={setNodeRef}>
       <div className="banner-base flex justify-center">
         <h1 className="h1-base mb-2">{children}</h1>
       </div>

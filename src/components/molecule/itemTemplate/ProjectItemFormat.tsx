@@ -30,7 +30,7 @@ export const ProjectItemFormat: FC<ProjectItemFormatType> = ({
       style={style}
       {...attributes}
       {...listeners}
-      className="w-5/6 min-h-44 border-2 mt-2 shadow-lg lg:max-w-xl flex flex-col flex-wrap justify-center p-3 break-all"
+      className="project-item-base"
     >
       <p className="item-container-base text-xl md:text-2xl">
         <IoListCircle className="item-icons-base" />

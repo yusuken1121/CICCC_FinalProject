@@ -8,7 +8,7 @@ export default {
         "48p": "48%",
       },
       color: {
-        darkGreen: "#84cc16",
+        "green-dark": "#84cc16",
       },
     },
   },
