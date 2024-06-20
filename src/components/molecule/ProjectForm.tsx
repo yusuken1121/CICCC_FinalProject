@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useState } from "react";
 import { SubmitButton } from "../atom/SubmitButton";
 import { v4 as uuid } from "uuid";
-import { ProjectsCtx } from "../../provider/ProjectCtx";
+import { ProjectsCtx, SetProjectCtx } from "../../provider/ProjectCtx";
 import { ProjectListType } from "../../types/project";
 import { Validatable, validate } from "../../helpers/validation";
 
@@ -9,7 +9,8 @@ export const ProjectForm = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [people, setPeople] = useState<number>(1);
-  const { projects, setProjects } = useContext(ProjectsCtx);
+  const { projects } = useContext(ProjectsCtx);
+  const { setProjects } = useContext(SetProjectCtx);
 
   const handleChangeTitle = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

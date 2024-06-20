@@ -12,5 +12,8 @@ export enum ProjectListType {
 }
 export interface ProjectsContextType {
   projects: Project[];
+}
+
+export interface SetProjectsContextType {
   setProjects: React.Dispatch<React.SetStateAction<Project[]>>;
 }

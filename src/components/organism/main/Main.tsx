@@ -9,14 +9,15 @@ import {
 } from "@dnd-kit/core";
 
 import { useContext } from "react";
-import { ProjectsCtx } from "../../../provider/ProjectCtx";
+import { ProjectsCtx, SetProjectCtx } from "../../../provider/ProjectCtx";
 import { ProjectActiveList } from "../../molecule/ProjectActiveList";
 import { ProjectFinishedList } from "../../molecule/ProjectFinishedList";
 import { handleDragEnd, handleDragOver } from "../../../helpers/dragHandler";
 import { ProjectForm } from "../../molecule/ProjectForm";
 
 export const Main = () => {
-  const { projects, setProjects } = useContext(ProjectsCtx);
+  const { projects } = useContext(ProjectsCtx);
+  const { setProjects } = useContext(SetProjectCtx);
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor),
