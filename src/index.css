@@ -4,7 +4,7 @@
 
 @layer components {
   .button-base-blue {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-3 rounded max-w-52 min-w-28 shadow-md shadow-slate-400;
+    @apply bg-blue-500 hover:bg-blue-700 dark:bg-lime-500 dark:hover:bg-lime-700 text-white font-bold py-2 px-4 mb-3 rounded max-w-52 min-w-28 shadow-md shadow-slate-400;
   }
   .h1-base {
     @apply text-3xl font-mono text-white;
@@ -12,13 +12,31 @@
   .form-control {
   }
   .banner-base {
-    @apply bg-blue-500 h-24 flex items-center;
+    @apply bg-blue-500 dark:bg-lime-500 h-24 flex items-center;
   }
   .item-container-base {
     @apply flex text-sky-800 font-mono mb-2;
   }
   .item-icons-base {
     @apply text-3xl mr-3;
+  }
+  .darkModeIcon-base {
+    @apply mr-12 text-3xl text-white;
+  }
+  .project-form-base {
+    @apply w-full h-96 p-4 mt-4 border-2 border-sky-500 border;
+  }
+  .input-base {
+    @apply w-full border-2 rounded-lg p-3 mb-4 font-mono text-black bg-white focus:outline-none dark:bg-slate-300 focus:bg-red-100 dark:focus:bg-lime-200;
+  }
+
+  @layer base {
+    body {
+      @apply bg-white text-black;
+    }
+    .dark body {
+      @apply bg-gray-900 text-white;
+    }
   }
 }
 
@@ -41,30 +59,14 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  /* :root {
     color: #213547;
     background-color: #ffffff;
-  }
+  } */
   a:hover {
     color: #747bff;
   }
   button {
     background-color: #f9f9f9;
   }
-}
-
-input,
-textarea {
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 0.5rem;
-  width: 100%;
-  padding: 0.825rem;
-  resize: none;
-  margin-bottom: 1rem;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  background: #fff5f9;
 }

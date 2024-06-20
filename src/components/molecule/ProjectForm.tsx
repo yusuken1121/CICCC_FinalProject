@@ -71,14 +71,14 @@ export const ProjectForm = () => {
   };
 
   return (
-    <form className="w-full h-96 p-4 mt-4 border-2 border-sky-500 ">
+    <form className="project-form-base">
       <div className="form-control">
         <label htmlFor="title" className="font-mono">
           Title
         </label>
         <input
           type="text"
-          className="font-mono"
+          className="input-base"
           placeholder="Enter fewer than 20 characters"
           id="title"
           value={title}
@@ -91,7 +91,7 @@ export const ProjectForm = () => {
         </label>
         <textarea
           id="description"
-          className="font-mono"
+          className="input-base"
           placeholder="Enter fewer than 20 characters"
           value={description}
           onChange={handleChangeDescription}
@@ -103,7 +103,7 @@ export const ProjectForm = () => {
         </label>
         <input
           value={people}
-          className="font-mono"
+          className="input-base"
           type="number"
           id="people"
           step="1"
