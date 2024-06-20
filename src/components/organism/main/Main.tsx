@@ -28,7 +28,6 @@ export const Main = () => {
     const { active, over } = event;
     const { id } = active;
     const { id: overId } = over || {};
-    console.log("🤩dragOver event", event);
     const prjctIdArr = projects.map((project: Project) => project.id);
     const activeIndex = prjctIdArr.indexOf(id as string);
     const overIndex = prjctIdArr.indexOf(overId as string);
@@ -62,8 +61,6 @@ export const Main = () => {
     const { active, over } = event;
     const { id } = active;
     const { id: overId } = over || {};
-    console.log("overId ⭐️⭐️⭐️⭐️⭐️", overId);
-    console.log("🤩dragend event", event);
     const prjctIdArr = projects.map((project: Project) => project.id);
     const activeIndex = prjctIdArr.indexOf(id as string);
     const overIndex = prjctIdArr.indexOf(overId as string);
@@ -77,7 +74,6 @@ export const Main = () => {
       const updateProjects: Project[] = [...prevProjects];
 
       if (overIndex !== -1) {
-        console.log("🎄1");
         [updateProjects[activeIndex], updateProjects[overIndex]] = [
           updateProjects[overIndex],
           updateProjects[activeIndex],
@@ -88,7 +84,6 @@ export const Main = () => {
         overId === ProjectListType.ACTIVE ||
         overId === ProjectListType.FINISHED
       ) {
-        console.log("🎄2");
         updateProjects[activeIndex].type = overId as ProjectListType;
       }
       return updateProjects;
