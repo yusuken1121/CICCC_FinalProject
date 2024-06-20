@@ -104,7 +104,7 @@ export const Main = () => {
           <ProjectsList />
         </div>
 
-        <div className="w-5/6 min-h-svh flex items-start justify-between">
+        <div className="w-5/6 min-h-svh flex flex-col md:flex-row items-start justify-between">
           <ProjectActiveList />
           <ProjectFinishedList />
         </div>

@@ -28,7 +28,7 @@ export const ProjectListFormat: FC<ProjectListFormat> = ({
 
   return (
     <div
-      className="w-48p min-h-svh max-h-fit mb-2 border-2 border-sky-500 mt-4"
+      className="w-full md:w-48p min-h-svh max-h-fit mb-2 border-2 border-sky-500 mt-4"
       style={dropZoneStyle}
       ref={setNodeRef}
     >
